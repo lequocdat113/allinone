@@ -1,10 +1,10 @@
 version: '3'
 services:
   mediawiki:
-    image: testfinal/mediawiki
+    image: dat09/mediawiki
     restart: always
     ports:
-      - 8080:80
+      - 9091:80
     links:
       - database
     volumes:
@@ -23,4 +23,7 @@ services:
       MYSQL_USER: admin
       MYSQL_PASSWORD: Gpdn2016
     volumes:
-      - 'mysql_data:/haihoa/mysql'
+      - 'mysql_wiki:/wiki/mysql'
+volumes:
+  mysql_wiki:
+    driver: local
