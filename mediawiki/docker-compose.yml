@@ -1,7 +1,7 @@
 version: '3'
 services:
   mediawiki:
-    image: dat09/mediawiki
+    image: dat09/mediawiki:1.0
     restart: always
     ports:
       - 9091:80
