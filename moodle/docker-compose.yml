@@ -1,0 +1,62 @@
+version: '2'
+services:
+  # mariadb:
+  #   image: docker.io/bitnami/mariadb:10.3
+  #   environment:
+  #     # ALLOW_EMPTY_PASSWORD is recommended only for development.
+  #     - ALLOW_EMPTY_PASSWORD=no
+  #     - MARIADB_USER=bn_moodle
+  #     - MARIADB_ROOT_PASSWORD=123456
+  #     - MARIADB_PASSWORD=123456
+  #     - MARIADB_DATABASE=bitnami_moodle
+  #     - MARIADB_CHARACTER_SET=utf8mb4
+  #     - MARIADB_COLLATE=utf8mb4_unicode_ci
+  #   volumes:
+  #     - 'mariadb_data:/bitnami/mariadb'
+  db:
+    image: docker.io/bitnami/mysql:latest
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_USER=dat09
+      - MYSQL_PASSWORD=123456
+      - MYSQL_DATABASE=dat09_moodle
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - 'mysql_data:/bitnami/mysql'
+  moodle:
+    image: bitnami/moodle:latest
+    ports:
+      - '80:8080'
+      - '443:8443'
+    environment:
+      - PHP_POST_MAX_SIZE=20M
+      - PHP_UPLOAD_MAX_FILESIZE=20M
+      - MOODLE_USERNAME=dat09
+      - MOODLE_PASSWORD=123456
+      - MOODLE_SITE_NAME=HarmonySoft
+      - MOODLE_DATABASE_TYPE=mysqli
+      - MOODLE_DATABASE_HOST=db
+      - MOODLE_DATABASE_PORT_NUMBER=3306
+      - MOODLE_DATABASE_USER=dat09
+      - MOODLE_DATABASE_NAME=dat09_moodle
+      - MOODLE_DATABASE_PASSWORD=123456
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=no
+    volumes:
+      - 'moodle_data:/bitnami/moodle'
+      - 'moodledata_data:/bitnami/moodledata'
+    depends_on:
+      - db
+      # - mariadb
+volumes:
+  # mariadb_data:
+  #   driver: local
+  mysql_data:
+    driver: local
+  moodle_data:
+    driver: local
+  moodledata_data:
+    driver: local
