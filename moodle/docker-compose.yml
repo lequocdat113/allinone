@@ -18,9 +18,9 @@ services:
     ports:
       - '3306:3306'
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
-      - MYSQL_USER=dat09
-      - MYSQL_PASSWORD=123456
+      - MYSQL_ROOT_PASSWORD=Gpdn2016
+      - MYSQL_USER=haihoa
+      - MYSQL_PASSWORD=Gpdn2016
       - MYSQL_DATABASE=dat09_moodle
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
@@ -34,15 +34,15 @@ services:
     environment:
       - PHP_POST_MAX_SIZE=20M
       - PHP_UPLOAD_MAX_FILESIZE=20M
-      - MOODLE_USERNAME=dat09
-      - MOODLE_PASSWORD=123456
+      - MOODLE_USERNAME=admin
+      - MOODLE_PASSWORD=Gpdn2016
       - MOODLE_SITE_NAME=HarmonySoft
       - MOODLE_DATABASE_TYPE=mysqli
       - MOODLE_DATABASE_HOST=db
       - MOODLE_DATABASE_PORT_NUMBER=3306
-      - MOODLE_DATABASE_USER=dat09
+      - MOODLE_DATABASE_USER=haihoa
       - MOODLE_DATABASE_NAME=dat09_moodle
-      - MOODLE_DATABASE_PASSWORD=123456
+      - MOODLE_DATABASE_PASSWORD=Gpdn2016
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=no
     volumes:
