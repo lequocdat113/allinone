@@ -1,11 +1,11 @@
-cd /home/dat09/allinone/ldap
+cd /home/haihoaadmin/allinone/ldap
 docker-compose up -d
 
-cd /home/dat09/allinone/keycloak
+cd /home/haihoaadmin/allinone/keycloak
 docker-compose up -d
 
-cd /home/dat09/allinone/moodle
+cd /home/haihoaadmin/allinone/moodle
 docker-compose up -d
 
-cd /home/dat09/allinone/mediawiki
+cd /home/haihoaadmin/allinone/mediawiki
 docker-compose up -d
